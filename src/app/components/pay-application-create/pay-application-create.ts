@@ -31,9 +31,9 @@ export class PayApplicationCreateComponent implements OnInit{
     ngOnInit(): void {
       this.reactiveForm = new FormGroup({
         applicationNo: new FormControl(null, [Validators.required,customValidation.alphanumericValidator]),
-        applicationDate: new FormControl(null, [Validators.required]),
-        periodStart: new FormControl(null, Validators.required),
-        periodEnd: new FormControl(null, Validators.required),
+        applicationDate: new FormControl(new Date(), [Validators.required]),
+        periodStart: new FormControl(new Date(), Validators.required),
+        periodEnd: new FormControl(new Date(), Validators.required),
         includeCertificate: new FormControl(null, Validators.required),
         retainage: new FormControl(null, Validators.required),
         changeOrderSummary: new FormControl(null, Validators.required),
@@ -60,5 +60,11 @@ export class PayApplicationCreateComponent implements OnInit{
         this.reactiveForm.value.changeOrderSummary
         );
         console.log(this.model);
+        this.reactiveForm.reset();
+        this.reactiveForm.patchValue({
+          applicationDate: new Date(),
+          periodStart: new Date(),
+          periodEnd: new Date(),
+        });
     }
 }
