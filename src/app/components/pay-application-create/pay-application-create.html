@@ -169,7 +169,7 @@
         </div>
       </div>
       <div class="d-grid gap-2 d-md-flex justify-content-md-end p-5">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary" [disabled]="reactiveForm.invalid">Submit</button>
         <button type="reset" class="btn btn-secondary">Cancel</button>
       </div>
     </form>
